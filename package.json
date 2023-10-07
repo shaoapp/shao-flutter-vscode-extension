@@ -6,6 +6,7 @@
   "repository": {
     "url": "https://github.com/shaoapp/shao-flutter-vscode-extension"
   },
+  "icon": "assets/logo-128.png",
   "pricing": "Free",
   "publisher": "shaoapp",
   "engines": {
