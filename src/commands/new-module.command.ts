@@ -1,20 +1,19 @@
-import * as _ from 'lodash'
 import * as path from 'path'
 import { InputBoxOptions, Uri, window } from 'vscode'
 import { createDirectory } from '../utils'
 import { existsSync } from 'fs'
 
-function _promptForModuleName (): Thenable<string | undefined> {
+async function _promptForModuleName (): Promise<Thenable<string>> {
   const opts: InputBoxOptions = {
     prompt: 'Module Name',
     placeHolder: 'home',
   }
-  return window.showInputBox(opts)
+  return await window.showInputBox(opts) || ''
 }
 
 export const newModule = async (uri: Uri) => {
   const moduleName = await _promptForModuleName()
-  if (_.isNil(moduleName) || moduleName.trim() === '') {
+  if (moduleName.length === 0) {
     window.showErrorMessage('The module name must not be empty')
     return
   }
