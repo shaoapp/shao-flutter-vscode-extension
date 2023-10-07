@@ -1,0 +1,58 @@
+{
+  "name": "shao-flutter",
+  "displayName": "Shao Flutter",
+  "description": "Shao flutter vscode extension",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.83.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "workspaceContains:**/pubspec.yaml"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.new-module",
+        "title": "ShaoFlutter: New Module",
+        "icon": "assets/logo.png"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "extension.new-module",
+          "group": "_shaoGroup@1",
+          "when": "explorerResourceIsFolder"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "yarn run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "yarn run compile && yarn run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.199",
+    "@types/mkdirp": "^2.0.0",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "16.x",
+    "@types/vscode": "^1.83.0",
+    "@typescript-eslint/eslint-plugin": "^6.4.1",
+    "@typescript-eslint/parser": "^6.4.1",
+    "@vscode/test-electron": "^2.3.4",
+    "eslint": "^8.47.0",
+    "glob": "^10.3.3",
+    "lodash": "^4.17.21",
+    "mkdirp": "^3.0.1",
+    "mocha": "^10.2.0",
+    "typescript": "^5.1.6"
+  }
+}
