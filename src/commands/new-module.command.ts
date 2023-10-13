@@ -29,20 +29,18 @@ export const newModule = async (uri: Uri) => {
   // https://felipeemidio.medium.com/folder-structure-for-flutter-with-clean-architecture-how-i-do-bbe29225774f
   // https://github.com/aquilarafa/clean_dart_flutter_command
   // https://github.com/jacobaraujo7/login-firebase-clean-dart
+  // https://www.youtube.com/watch?v=7V_P6dovixg
   const items = [
     'domain/entities',
     'domain/usecases',
     'domain/repositories',
 
-    'infra/models',
-    'infra/datasources',
-    'infra/repositories',
+    'data/models',
+    'data/datasources',
+    'data/repositories',
 
-    'presenter/pages',
-    'presenter/widgets',
-
-    'external/drivers',
-    'external/datasources',
+    'presentation/pages',
+    'presentation/widgets',
   ]
 
   items.forEach(item => {

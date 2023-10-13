@@ -2,7 +2,7 @@
   "name": "shao-flutter",
   "displayName": "Shao Flutter",
   "description": "Shao flutter vscode extension",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "repository": {
     "url": "https://github.com/shaoapp/shao-flutter-vscode-extension"
   },
