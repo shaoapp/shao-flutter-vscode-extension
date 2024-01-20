@@ -1,5 +1,5 @@
 import * as path from 'path'
-import { InputBoxOptions, Uri, window } from 'vscode'
+import { InputBoxOptions, Uri, window, workspace } from 'vscode'
 import { createDirectory } from '../utils'
 import { existsSync } from 'fs'
 
@@ -12,6 +12,7 @@ async function _promptForModuleName (): Promise<Thenable<string>> {
 }
 
 export const newModule = async (uri: Uri) => {
+  const settingKeyDirectories = 'shaoFlutter.directories'
   const moduleName = await _promptForModuleName()
   if (moduleName.length === 0) {
     window.showErrorMessage('The module name must not be empty')
@@ -30,20 +31,9 @@ export const newModule = async (uri: Uri) => {
   // https://github.com/aquilarafa/clean_dart_flutter_command
   // https://github.com/jacobaraujo7/login-firebase-clean-dart
   // https://www.youtube.com/watch?v=7V_P6dovixg
-  const items = [
-    'domain/entities',
-    'domain/usecases',
-    'domain/repositories',
+  const items = workspace.getConfiguration().get<string[]>(settingKeyDirectories)
 
-    'data/models',
-    'data/datasources',
-    'data/repositories',
-
-    'presentation/pages',
-    'presentation/widgets',
-  ]
-
-  items.forEach(item => {
+  items?.forEach(item => {
     createDirectory(targetDirectory, item)
   })
 }

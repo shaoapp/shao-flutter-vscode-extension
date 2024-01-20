@@ -2,7 +2,7 @@
   "name": "shao-flutter",
   "displayName": "Shao Flutter",
   "description": "Shao flutter vscode extension",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "repository": {
     "url": "https://github.com/shaoapp/shao-flutter-vscode-extension"
   },
@@ -26,6 +26,25 @@
   ],
   "main": "./out/extension.js",
   "contributes": {
+    "configuration": {
+      "title": "ShaoFlutter",
+      "properties": {
+        "shaoFlutter.directories": {
+          "type": "array",
+          "description": "Directories to create modules in",
+          "default": [
+            "domain/entities",
+            "domain/usecases",
+            "domain/repositories",
+            "data/models",
+            "data/datasources",
+            "data/repositories",
+            "presentation/pages",
+            "presentation/widgets"
+          ]
+        }
+      }
+    },
     "commands": [
       {
         "command": "extension.new-module",
